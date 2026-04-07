@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Media Queries--> CWH #SIGMABATCHOP</title>
+    <style>
+        body {
+            background-color: blue;
+        }
+
+        .boxes {
+            display: flex;
+        }
+
+        .box {
+            margin: 5px;
+            padding: 5px;
+            width: 34px;
+            height: 34px;
+            background-color: aqua;
+        }
+
+        /* media Queires for Making responsive websits 
+        Syntax :- 
+            @media [not/only/and] (screen/all/print) and (expression){
+                CSS CODE;
+            } 
+                
+            we use MOST of the time "Screen" for making projects 
+            all :- Used for all media type devices
+            print :- Used for print preview mode
+            screen :- Used for computer screens, tablets, and smart-phones
+            
+            not :- that queries dont work if expression satisfies
+            only :- only for*/
+
+        @media only screen and (max-width : 455px) {
+            .boxes {
+                flex-direction: column;
+            }
+
+        }
+
+        /* @media screen and (orientation : [potrait/landscape]){
+            CSS Code;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="boxes">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+</body>
+
+</html>
