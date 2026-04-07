@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Part 1 --> CWH #SIGMABATCHOP</title>
+    <style>
+        .container {
+            width: 70vw;
+            height: 80vh;
+            border: 2px solid black;
+            background-color: rgba(220, 216, 179, 0.792);
+            display: grid;
+            grid-template-columns: [pehela]100px [dusra]100px [t]100px [cotha];
+            /*Naming Grid line*/
+            grid-template-rows: [first]100px [second]100px [t]100px [fourth];
+            /* Grid Used for layout that structure in grid formate  */
+            /* This  grid-template-columns: 100px 100px 100px ;
+                    grid-template-rows: 100px 100px 100px;
+                    
+                    are used to define the how much row and column in this container exist here 3 columns and 3 row of 100px */
+        }
+
+        .item {
+            width: 35px;
+            height: 35px;
+            background-color: aqua;
+            border: 2px solid rgb(209, 78, 30);
+            /* Grid have item property to like
+                grid-row:-
+                    where item should place in row
+                grid-column:-
+                    where item should be in column                    
+                Syntax:- 
+                    grid-column: start/end;
+                    grid-row: start/end;
+                    also write as 
+                    grid-column-start:value;
+                    grid-column-end:value;
+                    */
+        }
+
+        .item-1 {
+            grid-column: 2/3;
+            grid-row: 2/3;
+        }
+
+        .item-4 {
+            grid-column: pehela/dusra;
+            grid-row: first/second;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="item item-1">1</div>
+        <div class="item">2</div>
+        <div class="item">3</div>
+        <div class="item item-4">4</div>
+        <div class="item">5</div>
+        <div class="item">6</div>
+        <div class="item">7</div>
+        <div class="item">8</div>
+    </div>
+</body>
+
+</html>
