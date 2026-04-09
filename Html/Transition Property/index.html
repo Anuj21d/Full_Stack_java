@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition Property --> CWH #SIGMABATCHOP</title>
+    <style>
+        .container {
+            height: 40vh;
+            width: 50vw;
+            background-color: aqua;
+        }
+
+        .box {
+            height: 6vh;
+            width: 5vw;
+            background-color: black;
+            /* transition have 4 property */
+            transition-property: transform, background-color;
+            transition-duration: 2s;
+            transition-timing-function: ease-out;
+            transition-delay: 1s;
+        }
+
+        .translate {
+            transform: translateX(50%) translateY(50%) rotate(45deg);
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box translate"></div>
+    </div>
+</body>
+
+</html>
