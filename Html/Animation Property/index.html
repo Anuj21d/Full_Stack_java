@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Property --> CWH #SIGMABATCHOP</title>
+    <style>
+        .container {
+            width: 50vw;
+            height: 50vh;
+            background-color: cadetblue;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            transform: translateX(50%) translateY(50%);
+            border-radius: 10%;
+            /* animation-name: gool;
+            animation-duration: 0.3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse; */
+            animation: gool 1s infinite;
+        }
+
+        @keyframes gool {
+            0% {
+                transform: translateX(50%) translateY(50%) rotate(90deg);
+                background-color: rgb(87, 236, 28);
+            }
+
+            25% {
+                transform: translateX(50%) translateY(50%) rotate(180deg);
+                background-color: rgb(87, 236, 28);
+            }
+
+            50% {
+                transform: translateX(50%) translateY(50%)rotate(270deg);
+                background-color: rgb(87, 236, 28);
+            }
+
+            75% {
+                transform: translateX(50%) translateY(50%) rotate(360deg);
+                background-color: rgb(87, 236, 28);
+            }
+
+            100% {
+                transform: translateX(50%) translateY(50%)rotate(450deg);
+                background-color: rgb(87, 236, 28);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+        </div>
+    </div>
+</body>
+
+</html>
