@@ -5,7 +5,7 @@ let obj = {
 };
 
 function name_genrator(obj) {
-  var b_name = "";
+  let b_name = "";
   for (const key in obj) {
     let element = obj[key];
     let parts = element.split(" ");
