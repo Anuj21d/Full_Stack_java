@@ -16,5 +16,19 @@ let n = 5;
 
 // form function
 
-let b = Array.from({length:n} ,(v,i) => n-i)
-console.log(b)
+let b = Array.from({ length: n }, (v, i) => n - i);
+console.log(b);
+
+//map function
+
+let c = b.map((v, index, array) => {
+  return v - index;
+});
+console.log(c);
+
+//filter function
+const greaterthanthree = (a) => {
+  return a > 3 ? a : 0;
+};
+let d = b.filter(greaterthanthree);
+console.log(d);
