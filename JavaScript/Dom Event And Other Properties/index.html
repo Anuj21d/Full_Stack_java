@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom Event And Other Properties</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">I am Anuj</div>
+      <div class="box">I am Anuj</div>
+    </div>
+    <script>
+      console.log(document.querySelector(".container").tagName);
+      console.log(document.querySelector(".container").nodeName);
+
+      console.log(document.querySelector(".container").innerHTML);
+      console.log(document.querySelector(".container").outerHTML);
+
+      document.querySelector(".box").innerHTML =
+        "<span>This is innerHTML added</span>";
+      document.querySelector(".box").outerHTML =
+        "<p>This is innerHTML added</p>";
+
+      let div = document.createElement("div");
+      div.innerHTML = "This Is Created";
+      div.setAttribute("class", "Created");
+      document.querySelector(".container").prepend(div);
+
+
+      let inserted = document.querySelector(".container")
+      inserted.insertAdjacentHTML("afterend","<b>Hi, I don't Have Friend to talk with to share things</b>")
+    </script>
+  </body>
+</html>
