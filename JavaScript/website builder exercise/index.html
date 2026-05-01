@@ -12,8 +12,8 @@
         color: aliceblue;
         font-family: "Work Sans", sans-serif;
       }
-      .container {
-        display: none;
+      .card {
+        display: flex;
         background-color: black;
         margin: 20px;
         padding: 15px 20px;
@@ -37,16 +37,16 @@
         opacity: 0.8;
         font-weight: 700;
       }
-      .content{
+      .content {
         padding-left: 20px;
       }
-      .content #title{
+      .content #title {
         margin: 0;
         margin-top: 5px;
         font-size: 24px;
         font-weight: 500;
       }
-      .channel-info{
+      .channel-info {
         display: flex;
         gap: 10px;
         color: rgb(96 95 95);
@@ -56,24 +56,26 @@
   </head>
   <body>
     <div class="container">
-      <div class="thumbnail">
-        <img
-          src="https://img.youtube.com/vi/Md5wvF3dVlU/mqdefault.jpg"
-          width="350px"
-          alt="Thumbnail"
-        />
-        <span>18:20</span>
-      </div>
-      <div class="content">
-        <p id="title">Kya Hacker Banega re tu !😂| Part 1 |TLRP Highlights</p>
-        <div class="channel-info">
-            <p id="channel-name">ShreeManLegendLive</p>
-            <p id="views">722k views </p>
-            <p id="duration">2 hours ago</p>
+      <!-- <div class="card">
+        <div class="thumbnail">
+          <img
+            src="https://img.youtube.com/vi/Md5wvF3dVlU/mqdefault.jpg"
+            width="350px"
+            alt="Thumbnail"
+          />
+          <span>18:20</span>
         </div>
-      </div>
+        <div class="content">
+          <p id="title">Kya Hacker Banega re tu !😂| Part 1 |TLRP Highlights</p>
+          <div class="channel-info">
+            <p id="channel-name">ShreeManLegendLive</p>
+            <p id="views">722k views</p>
+            <p id="duration">2 hours ago</p>
+          </div>
+        </div>
+      </div> -->
     </div>
-    <button onclick="creatCard()">Add Card</button>
+    <button onclick="getInput()">Add Card</button>
     <script src="script.js"></script>
   </body>
 </html>
