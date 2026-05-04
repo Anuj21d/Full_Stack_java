@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+     /* span {
+        display: inline-block;
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: blink 2s infinite 1s ease-in;
+      }
+      @keyframes blink {
+        0% {
+          width: 0;
+        }
+        100% {
+          width: 200px;
+        }
+      } */ for typing effect
+      span::after {
+        content: "";
+        animation: dots 1.2s steps(3, end) infinite;
+      }
+
+      @keyframes dots {
+        0% {
+          content: "";
+        }
+        33% {
+          content: ".";
+        }
+        66% {
+          content: "..";
+        }
+        100% {
+          content: "...";
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <span>....</span>
+  </body>
+</html>
