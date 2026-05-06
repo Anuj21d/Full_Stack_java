@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Jokes Fetcher</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    </style>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background-color: gray;
+      }
+      .container {
+        background-color: black;
+        padding: 20px;
+        margin: 40vh 38vw;
+        color: white;
+        text-align: center;
+      }
+      .headline {
+        font-size: 28px;
+        margin: 10px;
+        font-weight: 700;
+      }
+      .container .instruction {
+        color: gray;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .userInput {
+        margin: 10px;
+      }
+      #userInput {
+        padding: 7px 15px;
+        background-color: rgb(224, 66, 52);
+        border-radius: 5px;
+        border: 1px solid white;
+      }
+      #userInput:hover {
+        border: 2px solid rgb(184, 181, 181);
+      }
+      #userInput::placeholder {
+        color: white;
+        font-weight: 500;
+      }
+      button {
+        margin: 10px;
+        padding: 10px 20px;
+      }
+      .joke {
+        font-size: 18px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="headline">Random Joke Genrateor</div>
+      <p class="joke"></p>
+      <button onclick="getJoke()">Genrate Random Joke</button>
+    </div>
+    <script>
+      let data = [];
+      async function main() {
+        let jokes = await fetch(
+          "https://official-joke-api.appspot.com/jokes/ten",
+        );
+        data = await jokes.json();
+        console.log(data);
+        getJoke();
+      }
+      main();
+      function getJoke() {
+        let random = Math.floor(Math.random() * data.length);
+
+        let div = document.querySelector(".joke");
+        div.innerHTML = `<p>"${data[random].setup}"</p>
+                    <p>"${data[random].punchline}"</p>`;
+      }
+    </script>
+  </body>
+</html>
