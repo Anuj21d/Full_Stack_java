@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Water And Game</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    </style>
+    <style>
+      body {
+        height: 90vh;
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Poppins", sans-serif;
+      }
+      .container {
+        color: aqua;
+        width: 30vw;
+        height: 40vh;
+        border-radius: 20px;
+        gap: 20px;
+        font-size: 26px;
+      }
+      .container input {
+        color: white;
+        padding: 15px;
+        padding-right: 180px;
+        border-radius: 7px;
+        border: 1px solid gray;
+        background-color: rgba(69, 69, 69, 0.5);
+        display: block;
+        margin: auto;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 18px;
+      }
+      #userInput:hover {
+        border: 2px solid #00ffff;
+      }
+      .userInput:focus {
+        outline: none;
+        border: 2px solid #00ffff;
+      }
+      .userInput::placeholder {
+        color: white;
+        font-size: 16px;
+      }
+      button {
+        display: block;
+        margin: 20px auto;
+        padding: 12px 20px;
+        border-radius: 8px;
+        border: none;
+        background-color: aqua;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+      button:hover {
+        opacity: 0.9;
+        border: 2px solid #08c4b1;
+      }
+      .computerChoice {
+        text-align: center;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Sanke Water Gun Game</h1>
+      <input
+        type="text"
+        class="userInput"
+        id="userInput"
+        placeholder="Enter Your choice :"
+      />
+      <button onclick="genrateChoice()">Genrate Computer Choice</button>
+      <p class="computerChoice"></p>
+    </div>
+    <script>
+      function genrateChoice() {
+        let computerChoice = "";
+        let obj = ["snake", "water", "gun"];
+        let random = Math.floor(Math.random() * 3);
+        computerChoice = obj[random];
+        console.log(computerChoice);
+        choice(computerChoice);
+      }
+      function choice(computerChoice) {
+        let value = document.querySelector("#userInput").value;
+        let div = document.querySelector(".computerChoice");
+        div.innerHTML = `Computers Choice is : ${computerChoice}`;
+        setTimeout(() => {
+          if (computerChoice == value) {
+            alert("Draw Lollll!!!!");
+          } else if (computerChoice == "sanke" && value == "gun") {
+            alert("User winss Yayyyyyyy!!");
+          } else if (computerChoice == "water" && value == "snake") {
+            alert("User winss Yayyyyyyy!!");
+          } else if (computerChoice == "gun" && value == "water") {
+            alert("User winss Yayyyyyyy!!");
+          } else {
+            alert("Computer Winssssss Lollll!!!");
+          }
+        }, 700);
+      }
+    </script>
+  </body>
+</html>
