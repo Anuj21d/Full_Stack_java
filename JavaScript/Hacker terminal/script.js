@@ -5,14 +5,14 @@ function randomnumber() {
 async function hacker() {
   let div = document.querySelector(".container");
 
-  new Promise((resolve, reject) => {
+  new Promise((resolve) => {
     div.insertAdjacentHTML(
       "beforeend",
       `<p>Initializing Hacking<span></span></p>`,
     );
     resolve();
   });
-  await new Promise((resolve, reject) => {
+  await new Promise((resolve) => {
     setTimeout(() => {
       div.insertAdjacentHTML(
         "beforeend",
@@ -21,7 +21,7 @@ async function hacker() {
       resolve();
     }, randomnumber());
   });
-  await new Promise((resolve, reject) => {
+  await new Promise((resolve) => {
     setTimeout(() => {
       div.insertAdjacentHTML(
         "beforeend",
@@ -30,7 +30,7 @@ async function hacker() {
       resolve();
     }, randomnumber());
   });
-  await new Promise((resolve, reject) => {
+  await new Promise((resolve) => {
     setTimeout(() => {
       div.insertAdjacentHTML(
         "beforeend",
@@ -39,7 +39,7 @@ async function hacker() {
       resolve();
     }, randomnumber());
   });
-  await new Promise((resolve, reject) => {
+  await new Promise((resolve) => {
     setTimeout(() => {
       div.insertAdjacentHTML("beforeend", `<p>Cleaning up<span></span></p>`);
     }, randomnumber());
