@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+:root {
+  --primaryColor: #9f376f;
+  --SecondaryColor: #fdd73b;
+  --tertiaryColor: #55b7ea;
+  --surfaceColor: #f9fafb;
+  --Ink: #1a1a1a;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f8f9fa;
+  font-family: "Quicksand", sans-serif;
+}
+
+nav {
+  padding: 0 40px;
+  height: 84px;
+  display: flex;
+  align-items: center;
+  border-bottom: 4px solid var(--Ink);
+  box-shadow: 4px 4px var(--Ink);
+}
+.navbar {
+  display: flex;
+  padding: 0 40px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.navbar h1 {
+  color: var(--primaryColor);
+}
+.navbar h1:hover{
+    filter: drop-shadow(0 0 2px #b654889d);
+}
+.navbar ul {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+}
+.navbar ul li {
+  list-style: none;
+}
+.navbar ul li:hover{
+    color: var(--primaryColor);
+}
+.navbar .active{
+    border-bottom: 3px solid var(--primaryColor);
+    padding-bottom: 4px;
+    color: var(--primaryColor);
+}
+.navbar button{
+    padding: 8px 24px;
+    border-radius: 50px;
+    background-color: var(--primaryColor);
+    color: white;
+    font-weight: 600;
+    border: 2px solid var(--Ink);
+    cursor: pointer;
+}
+.navbar button:hover{
+    box-shadow: 4px 4px var(--Ink);
+    transform: translateY(-2px);
+}
+
+main{
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+}
+.top-part{
+    
+}
+
