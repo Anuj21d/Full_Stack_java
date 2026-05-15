@@ -152,6 +152,10 @@ main {
 .upload-section label:hover {
   background-color: #ee459f1d;
 }
+.uploadBox.drag-active {
+  background: #ee459f1d;
+  transform: scale(1.02);
+}
 .group:hover img {
   transform: scaleX(1.1) scaleY(1.1);
 }
@@ -237,14 +241,14 @@ main {
   display: flex;
   gap: 12px;
 }
-.hastag-list span{
+.hastag-list span {
   border: 3px solid var(--Ink);
   background-color: var(--surfaceColor);
   color: #004661;
   padding: 4px 12px;
   border-radius: 50px;
 }
-.image-mood{
+.image-mood {
   border: 3px solid var(--Ink);
   box-shadow: 4px 4px 0 var(--Ink);
   box-sizing: border-box;
@@ -252,19 +256,19 @@ main {
   background-color: var(--SecondaryColor);
   border-radius: 36px;
 }
-.image-mood p{
-  color: #715D00;
+.image-mood p {
+  color: #715d00;
 }
-.image-mood-info{
+.image-mood-info {
   display: flex;
   gap: 16px;
   margin-top: 8px;
   align-items: center;
 }
-.spec-heading p{
+.spec-heading p {
   text-align: center;
 }
-.spec-grid{
+.spec-grid {
   height: 528px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -273,7 +277,7 @@ main {
   margin-top: 48px;
   gap: 24px;
 }
-.spec-grid .item{
+.spec-grid .item {
   border: 3px solid var(--Ink);
   display: flex;
   gap: 8px;
@@ -283,57 +287,40 @@ main {
   border-radius: 45px;
   transition: 0.2s ease;
 }
-.first-item{
+.first-item {
   padding-top: 16px;
 }
-.spec-grid .item img{
+.spec-grid .item img {
   height: 20px;
   width: 20px;
   border: 3px solid var(--Ink);
   padding: 15px;
   border-radius: 50px;
 }
-.spec-grid .item:hover{
+.spec-grid .item:hover {
   box-shadow: 4px 4px 0 var(--Ink);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-footer{
-  background-color: #EDEEEF;
+footer {
+  background-color: #edeeef;
   padding: 48px 40px;
   border-top: 4px solid var(--Ink);
 }
-.footer{
+.footer {
   padding: 0 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.footer-left{
+.footer-left {
   display: flex;
   gap: 16px;
   flex-direction: column;
 }
-.footer-left p{
-  color: #705D00;
+.footer-left p {
+  color: #705d00;
 }
-.footer-right ul{
+.footer-right ul {
   display: flex;
   list-style: none;
   gap: 32px;
