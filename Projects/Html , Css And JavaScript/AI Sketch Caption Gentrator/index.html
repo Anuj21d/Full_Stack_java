@@ -23,14 +23,69 @@
       <section>
         <div class="top-part">
           <div class="top-heading">
-            <h1>AI Image Caption Generator</h1>
+            <h1>AI Image Caption <span>Generator</span></h1>
             <p>
               Turn your beautiful artwork into descriptive text effortlessly.
               Built for creators who need the perfect words for their pixels.
             </p>
           </div>
-          <div class="image-analyze"></div>
-          <button><img src="icons/upload.svg" alt="Upload Icon">Upload Artwork</button>
+          <button>
+            <img src="icons/upload.svg" alt="Upload Icon" />Upload Artwork
+          </button>
+        </div>
+      </section>
+      <section>
+        <div class="upload-section">
+          <input type="file" id="Upload-Image" hidden />
+          <label for="Upload-Image" class="group">
+            <img class="group" src="icons/Image-add.svg" alt="Add Image icon" />
+            <p>Drag & Drop your masterpiece</p>
+            <p style="color: #544249">PNG, JPG or WebP (Max 10MB)</p>
+          </label>
+          <button>
+            <img src="icons/analyze.svg" alt="Analyze it icon" />Analyze with AI
+          </button>
+        </div>
+      </section>
+      <section>
+        <div class="result">
+          <p class="cap-heading">The Magic Result</p>
+          <div class="result-grid">
+            <div class="user-image">
+              <img
+                width="548"
+                height="548"
+                src="images/jei-lee-0lL6Sox7n1Y-unsplash.jpg"
+                alt=""
+              />
+            </div>
+            <div class="Caption-gen">
+              <div class="caption">
+                <p>PERFECT CAPTION</p>
+                <p>
+                  "A vibrant explosion of digital blossoms where every petal
+                  tells a story of spring. This whimsical garden captures the
+                  essence of a sun-drenched afternoon in a world of pure
+                  imagination."
+                </p>
+              </div>
+              <div class="hastag">
+                <p>SMART HASHTAGS</p>
+                <div class="hastag-list">
+                  <span>#VibrantFlora</span>
+                  <span>#WhimsicalDesign</span>
+                  <span>#ModernVibe</span>
+                </div>
+              </div>
+              <div class="image-mood">
+                <p>IMAGE MOOD</p>
+                <div class="image-mood-info">
+                  <img src="icons/emoji.svg" alt="Smile Emoji" />
+                  <h4>Energetic, Optimistic & Playful</h4>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
