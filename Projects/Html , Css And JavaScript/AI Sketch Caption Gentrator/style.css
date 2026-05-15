@@ -261,3 +261,46 @@ main {
   margin-top: 8px;
   align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer{
+  background-color: #EDEEEF;
+  padding: 48px 40px;
+  border-top: 4px solid var(--Ink);
+}
+.footer{
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-left{
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+}
+.footer-left p{
+  color: #705D00;
+}
+.footer-right ul{
+  display: flex;
+  list-style: none;
+  gap: 32px;
+}
