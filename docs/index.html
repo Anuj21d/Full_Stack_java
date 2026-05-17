@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CapMeSketch - AI Sketch Caption Generator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="navbar">
+        <h1>CapMeSketch</h1>
+        <ul>
+          <li class="nav-link active">Model</li>
+          <li class="nav-link">API</li>
+          <li class="nav-link">Pricing</li>
+          <li class="nav-link">ShowCase</li>
+        </ul>
+        <button>Launch App</button>
+      </div>
+    </nav>
+    <main>
+      <section>
+        <div class="top-part">
+          <div class="top-heading">
+            <h1>AI Image Caption <span>Generator</span></h1>
+            <p>
+              Turn your beautiful artwork into descriptive text effortlessly.
+              Built for creators who need the perfect words for their pixels.
+            </p>
+          </div>
+          <button type="button" onclick="openUpload()">
+            <img src="icons/upload.svg" alt="Upload Icon" />Upload Artwork
+          </button>
+        </div>
+      </section>
+      <section>
+        <div class="upload-section">
+          <input type="file" id="Upload-Image" accept="image/*" hidden />
+          <label for="Upload-Image" class="group uploadBox">
+            <img class="group" src="icons/Image-add.svg" alt="Add Image icon" />
+            <p>Drag & Drop your masterpiece</p>
+            <p style="color: #544249">PNG, JPG or WebP (Max 10MB)</p>
+          </label>
+          <button type="button" class="analyze-btn">
+            <img src="icons/analyze.svg" alt="Analyze it icon" />Analyze with AI
+          </button>
+        </div>
+      </section>
+      <section>
+        <div class="result">
+          <p class="cap-heading">The Magic Result</p>
+          <div class="result-grid">
+            <div class="user-image">
+              <img
+                width="548"
+                height="548"
+                src="images/jei-lee-0lL6Sox7n1Y-unsplash.jpg"
+                alt=""
+              />
+            </div>
+            <div class="Caption-gen">
+              <div class="caption">
+                <p>PERFECT CAPTION</p>
+                <p>
+                  "A vibrant explosion of digital blossoms where every petal
+                  tells a story of spring. This whimsical garden captures the
+                  essence of a sun-drenched afternoon in a world of pure
+                  imagination."
+                </p>
+              </div>
+              <div class="hastag">
+                <p>SMART HASHTAGS</p>
+                <div class="hastag-list">
+                  <span>#VibrantFlora</span>
+                  <span>#WhimsicalDesign</span>
+                  <span>#ModernVibe</span>
+                </div>
+              </div>
+              <div class="image-mood">
+                <p>IMAGE MOOD</p>
+                <div class="image-mood-info">
+                  <img src="icons/emoji.svg" alt="Smile Emoji" />
+                  <h4>Energetic, Optimistic & Playful</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div class="spec-heading">
+          <p>Superpowers Included</p>
+          <p>Everything you need to describe the indescribable.</p>
+        </div>
+        <div class="spec-grid">
+          <div class="item">
+            <img
+              src="icons/item1.svg"
+              alt=""
+              style="background-color: #ffd8e6"
+            />
+            <p class="first-item">AI Deep Analysis</p>
+            <p>
+              Our neural networks see beyond pixels to understand the true
+              intent of your art.
+            </p>
+          </div>
+          <div class="item">
+            <img
+              src="icons/item2.svg"
+              alt=""
+              style="background-color: #ffe173"
+            />
+            <p class="first-item">Tone Tuning</p>
+            <p>
+              Switch between professional, witty, or poetic tones with a single
+              click.
+            </p>
+          </div>
+          <div class="item">
+            <img
+              src="icons/item3.svg"
+              alt=""
+              style="background-color: #c4e7ff"
+            />
+            <p class="first-item">Lightning Fast</p>
+            <p>
+              Results delivered in under 2 seconds. No more waiting for
+              inspiration to strike.
+            </p>
+          </div>
+          <div class="item">
+            <img
+              src="icons/item4.svg"
+              alt=""
+              style="background-color: #d9c0c8"
+            />
+            <p class="first-item">Global Support</p>
+            <p>
+              Generate captions in over 50 languages to reach a truly global
+              audience.
+            </p>
+          </div>
+          <div class="item">
+            <img
+              src="icons/item5.svg"
+              alt=""
+              style="background-color: #d9dadb"
+            />
+            <p class="first-item">Smart Cropping</p>
+            <p>
+              Automatically identify the focal point of your image for better
+              context.
+            </p>
+          </div>
+          <div class="item">
+            <img
+              src="icons/item6.svg"
+              alt=""
+              style="background-color: #ff85c0"
+            />
+            <p class="first-item">Cloud Sync</p>
+            <p>
+              Your history and preferences follow you across every device you
+              own.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer">
+        <div class="footer-left">
+          <h2>CapMeSketch</h2>
+          <p>@ 2026 CapMeSketch.Built for humans</p>
+        </div>
+        <div class="footer-right">
+          <ul>
+            <li>Privacy Policy</li>
+            <li>Terms of Service</li>
+            <li>Contact Us</li>
+            <li>Documentation</li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
