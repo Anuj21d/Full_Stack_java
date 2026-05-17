@@ -22,18 +22,18 @@ const uploadBox = document.querySelector(".uploadBox");
 
 const input = document.getElementById("Upload-Image");
 
+const previewImage = document.querySelector(".user-image img");
+
+const analyzeBtn = document.querySelector(".analyze-btn");
+
 const resultBox = document.querySelector(".caption p:last-child");
 
 const moodBox = document.querySelector(".image-mood-info h4");
 
 const hashtagBox = document.querySelector(".hastag-list");
 
-const previewImage = document.querySelector(".user-image img");
-
-const analyzeBtn = document.querySelector(".analyze-btn");
-
 // ======================
-// GLOBAL FILE STORAGE
+// GLOBAL FILE
 // ======================
 
 let currentFile = null;
@@ -47,7 +47,7 @@ function openUpload() {
 }
 
 // ======================
-// DRAG & DROP EVENTS
+// DRAG EVENTS
 // ======================
 
 uploadBox.addEventListener("dragover", (e) => {
@@ -71,7 +71,7 @@ uploadBox.addEventListener("drop", (e) => {
 });
 
 // ======================
-// NORMAL FILE UPLOAD
+// NORMAL UPLOAD
 // ======================
 
 input.addEventListener("change", () => {
@@ -85,31 +85,22 @@ input.addEventListener("change", () => {
 // ======================
 
 function handleFile(file) {
-  // stop if no file
   if (!file) return;
 
-  // validate image
   if (!file.type.startsWith("image/")) {
-    alert("Please upload image file");
+    alert("Please upload image");
 
     return;
   }
 
-  // store globally
   currentFile = file;
 
-  // ======================
-  // IMAGE PREVIEW
-  // ======================
-
+  // preview image
   const imageURL = URL.createObjectURL(file);
 
   previewImage.src = imageURL;
 
-  // ======================
-  // RESET UI
-  // ======================
-
+  // reset UI
   resultBox.innerText = "Image uploaded successfully.";
 
   moodBox.innerText = "Waiting for analysis...";
@@ -121,150 +112,105 @@ function handleFile(file) {
 // ANALYZE BUTTON
 // ======================
 
-analyzeBtn.addEventListener("click", () => {
+analyzeBtn.addEventListener("click", async () => {
+  if (analyzeBtn.disabled) return;
+
   if (!currentFile) {
     alert("Please upload image first");
 
     return;
   }
 
-  // loading UI
   resultBox.innerText = "Analyzing image...";
 
   moodBox.innerText = "Detecting mood...";
 
   hashtagBox.innerHTML = "<span>Loading...</span>";
 
-  // disable button
   analyzeBtn.disabled = true;
 
-  convertToBase64(currentFile);
-});
-
-// ======================
-// CONVERT IMAGE TO BASE64
-// ======================
-
-function convertToBase64(file) {
-  const reader = new FileReader();
-
-  reader.onload = () => {
-    const base64Image = reader.result.split(",")[1];
-
-    analyzeImage(base64Image, file.type);
-  };
-
-  reader.readAsDataURL(file);
-}
-
-// ======================
-// GEMINI AI ANALYSIS
-// ======================
-
-async function analyzeImage(base64Image, mimeType) {
   try {
-    const response = await fetch(
-      "https://capmesketch-worker.capmesketch-ai.workers.dev",
+    // ======================
+    // CONVERT IMAGE TO BASE64
+    // ======================
 
-      {
-        method: "POST",
+    const reader = new FileReader();
 
-        headers: {
-          "Content-Type": "application/json",
+    reader.onload = async () => {
+      const base64Image = reader.result.split(",")[1];
+
+      // ======================
+      // SEND TO WORKER
+      // ======================
+
+      const response = await fetch(
+        "http://localhost:8787",
+
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify({
+            image: base64Image,
+
+            mimeType: currentFile.type,
+          }),
         },
+      );
 
-        body: JSON.stringify({
-          contents: [
-            {
-              parts: [
-                {
-                  text: `
-Analyze this image and provide:
+      const data = await response.json();
 
-1. Creative Instagram caption
-2. 5 relevant hashtags
-3. Image mood
+      console.log(data);
 
-Return response in this format:
+      // ======================
+      // ERROR
+      // ======================
 
-Caption:
-...
+      if (!data.success) {
+        resultBox.innerText = data.error;
 
-Hashtags:
-...
+        analyzeBtn.disabled = false;
 
-Mood:
-...
-`,
-                },
+        return;
+      }
 
-                {
-                  inline_data: {
-                    mime_type: mimeType,
-                    data: base64Image,
-                  },
-                },
-              ],
-            },
-          ],
-        }),
-      },
-    );
+      // ======================
+      // SHOW RESULT
+      // ======================
 
-    const data = await response.json();
+      resultBox.innerText = data.result;
 
-    console.log(JSON.stringify(data, null, 2));
+      // ======================
+      // HASHTAGS
+      // ======================
 
-    // ======================
-    // API ERROR
-    // ======================
+      const hashtags = data.result.match(/#\w+/g);
 
-    if (data.error) {
-      resultBox.innerText = data.error.message;
+      hashtagBox.innerHTML = "";
+
+      if (hashtags) {
+        hashtags.forEach((tag) => {
+          hashtagBox.innerHTML += `<span>${tag}</span>`;
+        });
+      }
+
+      // ======================
+      // MOOD
+      // ======================
+
+      const moodMatch = data.result.match(/Mood:\s*(.*)/i);
+
+      if (moodMatch) {
+        moodBox.innerText = moodMatch[1];
+      }
 
       analyzeBtn.disabled = false;
+    };
 
-      return;
-    }
-
-    // ======================
-    // AI RESPONSE
-    // ======================
-
-    const aiText = data.candidates[0].content.parts[0].text;
-
-    // ======================
-    // SHOW RESULT
-    // ======================
-
-    resultBox.innerText = aiText;
-
-    // ======================
-    // HASHTAGS
-    // ======================
-
-    const hashtags = aiText.match(/#\w+/g);
-
-    hashtagBox.innerHTML = "";
-
-    if (hashtags) {
-      hashtags.forEach((tag) => {
-        hashtagBox.innerHTML += `<span>${tag}</span>`;
-      });
-    }
-
-    // ======================
-    // MOOD
-    // ======================
-
-    const moodMatch = aiText.match(/Mood:\s*(.*)/i);
-
-    if (moodMatch) {
-      moodBox.innerText = moodMatch[1];
-    }
-
-    // enable button
-    analyzeBtn.disabled = false;
+    reader.readAsDataURL(currentFile);
   } catch (error) {
     console.log(error);
 
@@ -272,24 +218,4 @@ Mood:
 
     analyzeBtn.disabled = false;
   }
-}
-analyzeBtn.addEventListener("click", () => {
-
-  if (analyzeBtn.disabled) return;
-
-  if (!currentFile) {
-
-    alert("Please upload image first");
-
-    return;
-
-  }
-
-  resultBox.innerText =
-    "Analyzing image...";
-
-  analyzeBtn.disabled = true;
-
-  convertToBase64(currentFile);
-
 });
