@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo Web App</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+    </style>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <navbar>
+      <div class="nav">
+        <h1>FocusTask</h1>
+        <div class="nav-icons">
+          <img src="icons/settings-02-stroke-rounded.svg" alt="" />
+          <img src="icons/user-circle-stroke-rounded.svg" alt="" />
+        </div>
+      </div>
+    </navbar>
+    <main>
+      <div class="main">
+        <div class="content-heading">
+          <div class="heading-text">
+            <h1>Matser Your day.</h1>
+            <p>
+              Focus on what matters most with systematic organization and
+              professional clarity.
+            </p>
+          </div>
+          <img src="icons/check.svg" alt="check image" />
+        </div>
+        <div class="add-task">
+          <input
+            type="text"
+            name="Task"
+            id="user-task"
+            placeholder="What need to be done?"
+          />
+          <button onclick="getInput()">Add Task</button>
+        </div>
+        <div class="onGoing">
+          <div class="og-headline">
+            <h3>All Ongoing Tasks</h3>
+            <p class="task-count">0 Task Left</p>
+          </div>
+          <!-- <div class="view-task">
+            <p class="user-task">
+              <input type="checkbox" name="" id="Tasks" />Finalize the quarterly
+              budget report
+            </p>
+            <img src="icons/delete-02-stroke-rounded.svg" alt="" />
+          </div> -->
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p class="task-count">0 Task Remaining</p>
+      <p class="task-comp">0 Complete Tasks</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
