@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+#rightCard::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-42% - 20px));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 10s linear infinite alternate;
+}
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
